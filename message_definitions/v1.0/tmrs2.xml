@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<mavlink>
+  <messages>
+    <!--  GCS PANEL -->
+    <!-- REEL -->
+    <message id="7000" name="TMRS2_REEL_STATUS">
+      <description>TMRS Reel Status</description>
+      <!-- <field type="float" name="reel_power" units="watts">Reel Power</field> relocated to new, bird srcd message-->
+      <field type="uint8_t" name="motor_fault_state">Motor Fault State</field> <!-- 0 for Bad, 1 for Normal -->
+      <field type="float" name="actual_tension" units="lbs">Actual Tension</field>
+      <field type="float" name="deployment_speed" units="ft/s">Deployment Speed</field>
+      <field type="float" name="deployment_length" units="ft">Deployment Length</field>
+    </message>
+    <message id="7001" name="TMRS2_REEL_CONTROL">
+      <description>TMRS Reel Control</description>
+      <field type="uint8_t" name="set_reel_motor_state">Motor State (0 for off, 1 for on)</field>
+      <field type="float" name="set_tension" units="lbs">Tension</field>
+    </message>
+    <!-- TETHER -->
+    <message id="7002" name="TMRS2_TETHER_STATUS">
+      <description>TMRS Tether Status</description>
+      <field type="uint8_t" name="actual_high_voltage_state">Actual High Voltage State (0 for off, 1 for on)</field>
+      <!-- Voltage and current metrics relocated to new, bird sourced messaged -->
+    </message>
+    <message id="7003" name="TMRS2_TETHER_CONTROL">
+      <description>TMRS Tether Control</description>
+      <field type="uint8_t" name="set_high_voltage_state">High Voltage State (0 for off, 1 for on)</field>
+    </message>
+    <!-- OPTICAL POWER -->
+    <message id="7004" name="TMRS2_OPTICAL_POWER_UAV">
+      <description>TMRS Optical Power at UAV Switch</description>
+      <field type="float" name="uav" units="watts">UAV switch optical power reading</field>
+    </message>
+    <message id="7005" name="TMRS2_OPTICAL_POWER_BREAKOUT_FROM_UAV">
+      <description>TMRS Optical Power at breakout switch from UAV </description>
+      <field type="float" name="breakout_uav" units="watts">Breakout switch optical power reading from UAV</field>
+    </message>
+    <message id="7006" name="TMRS2_OPTICAL_POWER_BREAKOUT_FROM_REEL">
+      <description>TMRS Optical Power at breakout switch from reel </description>
+      <field type="float" name="breakout_reel" units="watts">Breakout switch optical power reading from reel</field>
+    </message>
+    <message id="7007" name="TMRS2_OPTICAL_POWER_REEL">
+      <description>TMRS Optical Power at Reel Switch</description>
+      <field type="float" name="reel" units="watts">Reel witch optical power reading</field>
+    </message>
+    <!--  UAV PANEL  -->
+    <!-- UAV -->
+    <message id="7008" name="TMRS2_UAV_STATUS">
+      <description>TMRS UAV Status</description>
+      <field type="uint8_t" name="ethernet_switch_uav_status">Ethernet Switch (0 for off, 1 for on)</field>
+      <field type="uint8_t" name="uav_computer_board">Computer Board (0 for off, 1 for on)</field>
+      <field type="float" name="uav_computer_board_temperature">Computer Board Temperature (C)</field>
+     <field type="uint8_t" name="digital_data_link_uav_status">Digital Data Link (0 for off, 1 for on)</field>
+    </message>
+    <message id="7009" name="TMRS2_DDL_CONTROL">
+      <description>TMRS UAV Control</description>
+      <field type="uint8_t" name="set_digital_data_link">Digital Data Link (0 for off, 1 for on)</field>
+    </message>
+    <!-- Breakout Box -->
+    <message id="7010" name="TMRS2_BREAKOUT_BOX_STATUS">
+      <description>TMRS Breakout Box Status</description>
+      <field type="uint8_t" name="ethernet_switch_breakout_status">Ethernet Switch (0 for off, 1 for on)</field>
+    </message>
+    <!-- Reel Box -->
+    <message id="7011" name="TMRS2_REEL_BOX_STATUS">
+      <description>TMRS Reel Box Status</description>
+      <field type="uint8_t" name="ethernet_switch_reel_status">Ethernet Switch (0 for off, 1 for on)</field>
+      <field type="uint8_t" name="reel_computer_board">Computer Board (0 for off, 1 for on)</field>
+      <field type="float" name="reel_computer_board_temperature">Computer Board Temperature (C)</field>
+      <field type="uint8_t" name="motor_control">Motor Control (0 for off, 1 for on)</field>
+      <field type="uint8_t" name="digital_data_link_reel_status">Digital Data Link (0 for off, 1 for on)</field>
+    </message>
+    <!-- Motor Currents -->
+    <message id="7012" name="TMRS2_MOTOR_CURRENTS_STATUS">
+      <description>TMRS Motor Currents</description>
+      <field type="float[6]" name="motor_currents" units="amps">Motor Currents</field>
+    </message>
+    <!-- BATTERY -->
+    <message id="7013" name="TMRS2_UAV_BATTERY_STATUS">
+      <description>TMRS UAV Battery Status </description>
+      <field type="float" name="battery_voltage" units="volts">Battery Voltage</field>
+      <field type="float" name="battery_percentage" units="">Battery Percentage</field>
+      <field type="float" name="battery_life" units="mah">Battery Life</field>
+    </message>
+    <message id="7014" name="TMRS2_BATTERY_CONTROL">
+      <description>TMRS Battery Control</description>
+      <field type="float" name="set_system_battery" units="amp hour">Battery on System</field>
+    </message>
+    <!-- Error -->
+    <message id="7016" name="TMRS2_ERROR">
+      <description>TMRS Error</description>
+      <field type="char[90]" name="error_data">Error data</field>
+    </message>
+    <!-- PAYLOAD PANEL -->
+    <!-- SDR Payload-->
+    <message id="7017" name="TMRS2_PAYLOAD_SDR_STATUS">
+      <description>TMRS Software Defined Radio Status Log</description>
+      <field type="char[64]" name="sdr_data">SDR Status Log</field>
+      <field type="uint8_t" name="sdr_status">SDR Status (0 for off, 1 for on)</field>
+    </message>
+    <message id="7018" name="TMRS2_PAYLOAD_SDR_CONTROL">
+      <description>TMRS Software Defined Radio Control</description>
+      <field type="uint8_t" name="set_selector">SDR Selector: Scan or Neutralize (0 for Scan, 1 for Neutralize)</field>
+      <field type="uint8_t" name="set_sdr_status">Turn SDR Payload 12V on or off (0 for off, 1 for on)</field>
+    </message>
+    <!-- Top Payload-->
+    <message id="7019" name="TMRS2_PAYLOAD_TOP_STATUS">
+      <description>TMRS Top Payload Status</description>
+      <field type="uint8_t" name="top_payload_status">Status of Top Payload 12V (0 for off, 1 for on)</field>
+    </message>
+    <message id="7020" name="TMRS2_PAYLOAD_TOP_CONTROL">
+      <description>TMRS Top Payload Control</description>
+      <field type="uint8_t" name="set_top_payload">Turn Top Payload 12V on or off (0 for off, 1 for on)</field>
+    </message>
+    <!-- Bottom Payload-->
+    <message id="7021" name="TMRS2_PAYLOAD_BOTTOM_STATUS">
+      <description>TMRS Bottom Payload Status</description>
+      <field type="uint8_t" name="bottom_payload_status">Status of Bottom Payload 12V (0 for off, 1 for on)</field>
+    </message>
+    <message id="7022" name="TMRS2_PAYLOAD_BOTTOM_CONTROL">
+      <description>TMRS Bottom Payload Controll</description>
+      <field type="uint8_t" name="set_bottom_payload">Turn Bottom Payload 12V on or off (0 for off, 1 for on)</field>
+    </message>
+    <!-- RFOF Payload-->
+    <message id="7023" name="TMRS2_PAYLOAD_PASSIVE_RFOF_STATUS">
+      <description>TMRS Passive RFOF Status</description>
+      <field type="uint8_t" name="rfof_lna_status">Status of RFoF LNA (0 for off, 1 for on)</field>
+      <field type="uint8_t" name="rfof_laser_status">Status of RFoF Laser (0 for off, 1 for on)</field>
+      <field type="float" name="rfof_attenuation_status">Attenuation (db) of RFoF Module</field>
+      <field type="float" name="rfof_temperature_status">Temperature (C) of RFoF Module</field>
+      <field type="uint8_t" name="rfof_health_status">Status of RFoF (0 for off, 1 for on)</field>
+    </message>
+    <message id="7024" name="TMRS2_PAYLOAD_PASSIVE_RFOF_CONTROL">
+      <description>TMRS Passive RFOF Payload Controll</description>
+      <field type="uint8_t" name="set_rfof_lna">Set RFoF LNA(0 for off, 1 for on)</field>
+      <field type="float" name="set_rfof_attenuation">Set RFoF Attenuation (0dB to 31.5dB in 0.5db steps)</field>
+      <field type="uint8_t" name="reset_rfof">Reset RFoF Payload (0 to not reset, 1 to reset)</field>
+    </message>
+    <message id="7025" name="TMRS2_PAYLOAD_ACTIVE_RFOF_STATUS">
+      <description>TMRS Active RFOF Status</description>
+      <field type="uint8_t" name="rfof_lna_status">Status of RFoF LNA (0 for off, 1 for on)</field>
+      <field type="uint8_t" name="rfof_laser_status">Status of RFoF Laser (0 for off, 1 for on)</field>
+      <field type="float" name="rfof_attenuation_status">Attenuation (db) of RFoF Module</field>
+      <field type="float" name="rfof_temperature_status">Temperature (C) of RFoF Module</field>
+      <field type="uint8_t" name="rfof_health_status">Status of RFoF (0 for off, 1 for on)</field>
+    </message>
+    <message id="7026" name="TMRS2_PAYLOAD_ACTIVE_RFOF_CONTROL">
+      <description>TMRS Active RFOF Payload Controll</description>
+      <field type="uint8_t" name="set_rfof_lna">Set RFoF LNA(0 for off, 1 for on)</field>
+      <field type="float" name="set_rfof_attenuation">Set RFoF Attenuation (0dB to 31.5dB in 0.5db steps)</field>
+      <field type="uint8_t" name="reset_rfof">Reset RFoF Payload (0 to not reset, 1 to reset)</field>
+    </message>
+    <message id="7027" name="TMRS2_BCM_STATUS">
+      <description>BCM powersupply status</description>
+      <field type="float" name="bcm0_voltage_in" units="volts">BCM0 Voltage In</field>
+      <field type="float" name="bcm1_voltage_in" units="volts">BCM1 Voltage In</field>
+      <field type="float" name="bcm2_voltage_in" units="volts">BCM2 Voltage In</field>
+      <field type="float" name="bcm0_voltage_out" units="volts">BCM0 Voltage Out</field>
+      <field type="float" name="bcm1_voltage_out" units="volts">BCM1 Voltage Out</field>
+      <field type="float" name="bcm2_voltage_out" units="volts">BCM2 Voltage Out</field>
+      <field type="float" name="bcm0_current_in" units="milliamps">BCM0 Current In</field>
+      <field type="float" name="bcm1_current_in" units="milliamps">BCM1 Current In</field>
+      <field type="float" name="bcm2_current_in" units="milliamps">BCM2 Current In</field>
+      <field type="float" name="bcm0_current_out" units="amps">BCM0 Current Out</field>
+      <field type="float" name="bcm1_current_out" units="amps">BCM1 Current Out</field>
+      <field type="float" name="bcm2_current_out" units="amps">BCM2 Current Out</field>
+      <field type="float" name="bcm0_power_out" units="watts">BCM0 Power Out</field>
+      <field type="float" name="bcm1_power_out" units="watts">BCM1 Power Out</field>
+      <field type="float" name="bcm2_power_out" units="watts">BCM2 Power Out</field>
+      <field type="float" name="bcm0_temp" units="degC">BCM0 Temp</field>
+      <field type="float" name="bcm1_temp" units="degC">BCM1 Temp</field>
+      <field type="float" name="bcm2_temp" units="degC">BCM2 Temp</field>
+      <field type="float" name="tether_voltage" units="volts">Tether Voltage</field>
+      <field type="float" name="tether_current" units="milliamps">Tether Current</field>
+      <field type="float" name="tether_power" units="watts">Tether Power</field>
+    </message>
+
+
+  </messages>
+</mavlink>

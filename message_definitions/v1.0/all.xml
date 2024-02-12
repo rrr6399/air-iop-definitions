@@ -70,5 +70,8 @@
     messages: 52500 - 52599 (< 60000)
     commands: 52500 - 52599 (< 60000)
   -->
+  <include>tmrs.xml</include>
+  <include>tmrs2.xml</include>
+  <include>menet.xml</include>
   <messages/>
 </mavlink>
