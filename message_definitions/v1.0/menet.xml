@@ -30,4 +30,18 @@
             </entry>
         </enum>
     </enums>
+    <messages>
+        <message id="72000" name="MENET_REEL_CONTROL">
+            <description>TMRS Reel Control</description>
+            <field type="uint8_t" name="set_reel_motor_state">Motor State (0 for off, 1 for on)</field>
+            <field type="float" name="set_tension" units="lbs">Tension</field>
+        </message>
+        <message id="72001" name="MENET_REEL_STATUS">
+            <description>TMRS Reel Status</description>
+            <field type="uint8_t" name="motor_fault_state">Motor Fault State</field> <!-- 0 for Bad, 1 for Normal -->
+            <field type="float" name="actual_tension" units="lbs">Actual Tension</field>
+            <field type="float" name="deployment_speed" units="ft/s">Deployment Speed</field>
+            <field type="float" name="deployment_length" units="ft">Deployment Length</field>
+        </message>
+    </messages>
 </mavlink>
