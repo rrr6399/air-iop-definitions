@@ -13,13 +13,41 @@
                 value). See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of
                 the MAV_CMD entries
             </description>
-            <entry value="71000" name="MAV_CMD_TETHER_POWER" hasLocation="false" isDestination="false">
+            <entry value="71000" name="MAV_CMD_ENABLE_TETHER_POWER" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Power on/off a tethered system
                 </description>
-                <param index="1" label="PowerState" minValue="0" maxValue="1" increment="1">
+                <param index="1" label="POWER_STATE" minValue="0" maxValue="1" increment="1">
                     Power state to set. 1 for on, 0 for off.
+                </param>
+                <param index="2" reserved="true" default="NaN"/>
+                <param index="3" reserved="true" default="NaN"/>
+                <param index="4" reserved="true" default="NaN"/>
+                <param index="5" reserved="true" default="NaN"/>
+                <param index="6" reserved="true" default="NaN"/>
+                <param index="7" reserved="true" default="NaN"/>
+            </entry>
+            <entry value="71001" name="MAV_CMD_PREPARE_TO_LAUNCH" hasLocation="false" isDestination="false">
+                <wip/>
+                <description>
+                    Prepare leveling table for launch
+                </description>
+                <param index="1" reserved="true" default="NaN"/>
+                <param index="2" reserved="true" default="NaN"/>
+                <param index="3" reserved="true" default="NaN"/>
+                <param index="4" reserved="true" default="NaN"/>
+                <param index="5" reserved="true" default="NaN"/>
+                <param index="6" reserved="true" default="NaN"/>
+                <param index="7" reserved="true" default="NaN"/>
+            </entry>
+            <entry value="71002" name="MAV_CMD_LOCK_PLATFORM" hasLocation="false" isDestination="false">
+                <wip/>
+                <description>
+                    LOCK the platform
+                </description>
+                <param index="1" label="LOCK_STATE" minValue="0" maxValue="1" increment="1">
+                    Lock state to set. 1 for lock, 0 for unlock.
                 </param>
                 <param index="2" reserved="true" default="NaN"/>
                 <param index="3" reserved="true" default="NaN"/>
@@ -31,13 +59,22 @@
         </enum>
     </enums>
     <messages>
-     <message id="72002" name="MENET_TETHER_STATUS">
-      <description>TMRS Tether Status</description>
-      <field type="uint8_t" name="actual_high_voltage_state">Actual High Voltage State (0 for off, 1 for on)</field>
-     </message>
-     <message id="72003" name="MENET_TETHER_CONTROL">
-      <description>Tether Control</description>
-      <field type="uint8_t" name="set_high_voltage_state">High Voltage State (0 for off, 1 for on)</field>
-     </message>
+        <message id="72000" name="REEL_CONTROL">
+            <description>Reel Control</description>
+            <field type="uint8_t" name="set_reel_motor_state">Motor State (0 for off, 1 for on)</field>
+            <field type="float" name="set_tension" units="lbs">Tension</field>
+        </message>
+        <message id="72001" name="REEL_STATUS">
+            <description>Reel Status</description>
+            <field type="uint8_t" name="motor_fault_state">Motor Fault State</field> <!-- 0 for Bad, 1 for Normal -->
+            <field type="float" name="actual_tension" units="lbs">Actual Tension</field>
+            <field type="float" name="deployment_speed" units="ft/s">Deployment Speed</field>
+            <field type="float" name="deployment_length" units="ft">Deployment Length</field>
+        </message>
+        <message id="72002" name="LEVEL_PLATFORM_STATUS">
+            <description>Reel Status</description>
+            <field type="uint8_t" name="lock_state">Lock State</field> <!-- 0 for unlocked, 1 for locked -->
+            <field type="uint8_t" name="in_progress">In Progress</field> <!-- 0 for no, 1 for yes -->
+        </message>
     </messages>
 </mavlink>
