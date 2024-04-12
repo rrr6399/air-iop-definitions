@@ -13,7 +13,7 @@
                 value). See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of
                 the MAV_CMD entries
             </description>
-            <entry value="71000" name="MAV_CMD_ENABLE_TETHER_POWER" hasLocation="false" isDestination="false">
+            <entry value="8100" name="MAV_CMD_ENABLE_TETHER_POWER" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Power on/off a tethered system
@@ -28,7 +28,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="71001" name="MAV_CMD_PREPARE_TO_LAUNCH_RECOVER" hasLocation="false" isDestination="false">
+            <entry value="8101" name="MAV_CMD_PREPARE_TO_LAUNCH_RECOVER" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Level platform in preparation for launch/recovery
@@ -41,7 +41,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="71002" name="MAV_CMD_SECURE_AIRCRAFT" hasLocation="false" isDestination="false">
+            <entry value="8102" name="MAV_CMD_SECURE_AIRCRAFT" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     SECURE/UNSECURE Aircraft in preparation for launch/recovery
@@ -56,7 +56,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="71003" name="MAV_CMD_STOW_AIRCRAFT" hasLocation="false" isDestination="false">
+            <entry value="8103" name="MAV_CMD_STOW_AIRCRAFT" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Once Aircraft lands, call this function to fully retract platform legs
@@ -70,7 +70,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="71004" name="MAV_CMD_PLATFORM_FLIGHT_CONFIG" hasLocation="false" isDestination="false">
+            <entry value="8104" name="MAV_CMD_PLATFORM_FLIGHT_CONFIG" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Move securing feet out of launch config to flight config so securing feet
@@ -84,7 +84,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="73000" name="MAV_CMD_TETHER_TENSION" hasLocation="false" isDestination="false">
+            <entry value="8300" name="MAV_CMD_TETHER_TENSION" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Set the tether tension: 0=off(0 oz), 1=fly(16 oz), 2=retract(32 oz), 3=recover(60 oz)
@@ -97,7 +97,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="73001" name="MAV_CMD_REEL_BRAKE" hasLocation="false" isDestination="false">
+            <entry value="8301" name="MAV_CMD_REEL_BRAKE" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Set the tether reel brake on/off: 0=off, 1=on
@@ -110,7 +110,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="73002" name="MAV_CMD_DRONE_POWER" hasLocation="false" isDestination="false">
+            <entry value="8302" name="MAV_CMD_DRONE_POWER" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Turn drone power(HVDC) on/off: 0=off, 1=on
@@ -123,7 +123,7 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-            <entry value="73003" name="MAV_CMD_GCU_READY" hasLocation="false" isDestination="false">
+            <entry value="8303" name="MAV_CMD_GCU_READY" hasLocation="false" isDestination="false">
                 <wip/>
                 <description>
                     Restarts the python server allowing java commands to control Raspberry Pi GPIO pins.
@@ -141,19 +141,19 @@
         </enum>
     </enums>
     <messages>
-        <message id="72000" name="REEL_CONTROL">
+        <message id="8200" name="REEL_CONTROL">
             <description>Reel Control</description>
             <field type="uint8_t" name="set_reel_motor_state">Motor State (0 for off, 1 for on)</field>
             <field type="float" name="set_tension" units="lbs">Tension</field>
         </message>
-        <message id="72001" name="REEL_STATUS">
+        <message id="8201" name="REEL_STATUS">
             <description>Reel Status</description>
             <field type="uint8_t" name="motor_fault_state">Motor Fault State</field> <!-- 0 for Bad, 1 for Normal -->
             <field type="float" name="actual_tension" units="lbs">Actual Tension</field>
             <field type="float" name="deployment_speed" units="ft/s">Deployment Speed</field>
             <field type="float" name="deployment_length" units="ft">Deployment Length</field>
         </message>
-        <message id="72002" name="LEVEL_PLATFORM_STATUS">
+        <message id="8202" name="LEVEL_PLATFORM_STATUS">
             <description>Reel Status</description>
             <field type="uint8_t" name="aircraft_secure_state">Aircraft Secure State
             </field> <!-- 0 for unlocked, 1 for locked, 2 for flight config, 3 for unknown-->
@@ -165,7 +165,7 @@
             </field> <!--0: standby, 1: Leveling, 2: Unsecuring, 3: Securing, 4: Stowing-->
         </message>
 
-        <message id="74000" name="GCU_STATUS">
+        <message id="8203" name="GCU_STATUS">
             <description>Reel Status</description>
             <field type="uint8_t" name="py_server_state">Python server listening
             </field> <!-- 0=no (needs reset), 1=OK to launch and fly-->
