@@ -129,7 +129,7 @@
                     Restarts the python server allowing java commands to control Raspberry Pi GPIO pins.
                     Send this command if GCU_STATUS.py_server_state = 0
                 </description>
-                <param index="1" label="DRONE_POWER" minValue="0" maxValue="1" increment="1"/>
+                <param index="1" label="GCU_READY" minValue="0" maxValue="1" increment="1"/>
                 <param index="2" reserved="true" default="NaN"/>
                 <param index="3" reserved="true" default="NaN"/>
                 <param index="4" reserved="true" default="NaN"/>
