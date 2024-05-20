@@ -137,7 +137,19 @@
                 <param index="6" reserved="true" default="NaN"/>
                 <param index="7" reserved="true" default="NaN"/>
             </entry>
-
+            <entry value="8304" name="MAV_CMD_BATTERY_BACKUP" hasLocation="false" isDestination="false">
+                <wip/>
+                <description>
+                    Turn GCU battery backup on/off: 0=off, 1=on
+                </description>
+                <param index="1" label="BATTERY_BACKUP" minValue="0" maxValue="1" increment="1"/>
+                <param index="2" reserved="true" default="NaN"/>
+                <param index="3" reserved="true" default="NaN"/>
+                <param index="4" reserved="true" default="NaN"/>
+                <param index="5" reserved="true" default="NaN"/>
+                <param index="6" reserved="true" default="NaN"/>
+                <param index="7" reserved="true" default="NaN"/>
+            </entry>
         </enum>
     </enums>
     <messages>
